@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private string _horizontalAxis = "Horizontal", _verticalAxis = "Vertical";
     [SerializeField]
     private Rigidbody2D _playerRigidbody;
+    private float _playerSpeed = 3f; 
 
 
     private void Start()
@@ -24,7 +25,9 @@ public class PlayerController : MonoBehaviour
 
         Vector2 _input = new Vector2(horizontalInput, vertialInput);
 
-        _playerRigidbody.velocity = _input;
+        _playerRigidbody.velocity = _input * _playerSpeed;
+
+        _input.Normalize();
     }
 
     
